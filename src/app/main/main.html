@@ -1,0 +1,63 @@
+<div class="container">
+
+  <h1>Table Sorting test</h1>
+  <br>
+  <p class="lead">Filter from:  <date-picker ng-change="filterByDate()" ng-model="dateFrom" ></date-picker>  to:  <date-picker ng-change="filterByDate()" ng-model="dateTo" ></date-picker></p>
+  <br>
+  <div class="row">
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+              <a ng-click="sortBy('id')">
+              <span ng-show="predicate === 'id'" ng-class="{reverse:reverse}"></span>
+              id</a>
+            </th>
+            <th>
+              <a ng-click="sortBy('city')">
+              <span ng-show="predicate === 'city'" ng-class="{reverse:reverse}"></span>
+              City</a>
+            </th>
+            <th>
+              <a ng-click="sortBy('color')">
+              <span ng-show="predicate === 'color'" ng-class="{reverse:reverse}"></span>
+              Color</a>
+            </th>
+            <th>
+              <a ng-click="sortBy('start_date')">
+              <span ng-show="predicate === 'start_date'" ng-class="{reverse:reverse}"></span>
+              Start Date</a>
+            </th>
+            <th>
+              <a ng-click="sortBy('end_date')">
+              <span ng-show="predicate === 'end_date'" ng-class="{reverse:reverse}"></span>
+              End Date</a>
+            </th>
+            <th>
+              <a ng-click="sortBy('price')">
+              <span ng-show="predicate === 'price'" ng-class="{reverse:reverse}"></span>
+              Price</a>
+            </th>
+            <th>
+              <a ng-click="sortBy('status')">
+              <span ng-show="predicate === 'status'" ng-class="{reverse:reverse}"></span>
+              Status</a>
+            </th>
+          </tr>
+        </thead>
+        <tr ng-repeat="city in filteredCities track by city.id">
+          <td>{{city.id}}</td>
+          <td>{{city.city}}</td>
+          <td style="background:{{city.color}}">{{city.color}}</td>
+          <td>{{city.start_date | date}}</td>
+          <td>{{city.end_date | date}}</td>
+          <td>{{city.price}}</td>
+          <td>{{city.status}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
